@@ -12,7 +12,7 @@ windows_task "critupdate" do
   user "Administrator"
   password "*********"
   cwd "C:/windows/system32/windowspowershell/v1.0/"
-  command "powershell.exe -L C:/critwindowsupdate.ps1"
+  command "powershell.exe C:/critwindowsupdate.ps1"
   run_level :highest
   frequency :minute
   frequency_modifier 15
@@ -22,7 +22,7 @@ windows_task "installcritreboot" do
   user "Administrator"
   password "*********"
   cwd "C:/windows/system32/windowspowershell/v1.0/"
-  command "powershell.exe -L C:/installcritreboot.ps1"
+  command "powershell.exe C:/installcritreboot.ps1"
   run_level :highest
   frequency :minute
   frequency_modifier 15
