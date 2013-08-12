@@ -39,6 +39,8 @@ attribute :frequency, :equal_to => [:minute,
                                     :on_logon,
                                     :onstart,
                                     :on_idle], :default => :hourly
+#YB added
+attribute :start_time, :kind_of => String, :default => "03:00"
 
 attr_accessor :exists, :status
 

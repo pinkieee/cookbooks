@@ -35,6 +35,7 @@ windows_task "dlcritupdates" do
   cwd "C:/windows/system32/windowspowershell/v1.0/"
   command "powershell.exe C:/cloudreach/dlcritupdates.ps1"
   run_level :highest
+  start_time "03:00"
   frequency node[:windowsupdate][:schedule]
 end
 
@@ -44,5 +45,6 @@ windows_task "installcritupdatesreboot" do
   cwd "C:/windows/system32/windowspowershell/v1.0/"
   command "powershell.exe C:/cloudreach/installcritupdatesreboot.ps1"
   run_level :highest
+#  start_time "03:00"
   frequency node[:windowsupdate][:schedule]
 end
