@@ -1,27 +1,22 @@
-#::Chef::Recipe.send(:include, Windows::Provider::task)
-
 pw = search(:"AMAZONA-0ECCAAU", "id:windows").first
 
-cookbook_file "C:/tmp/dlcritupdates.ps1" do
+directory "C:/cloudreach" do
+  action :create
+ end
+
+cookbook_file "C:/cloudreach/dlcritupdates.ps1" do
   source "dlcritupdates.ps1"
 end
 
-
-windows_task "chefclient" do
-  user "Administrator"
-  password pw["password"]
-  cwd "C:/opscode/chef/bin"
-  command "chef-client -L C:/tmp/"
-  run_level :highest
-  frequency :minute
-  frequency_modifier 15
+cookbook_file "C:/cloudreach/installcritupdatesreboot.ps1" do
+  source "installcritupdatesreboot.ps1"
 end
 
 windows_task "critupdate" do
   user "Administrator"
   password pw["password"]
   cwd "C:/windows/system32/windowspowershell/v1.0/"
-  command "powershell.exe C:/tmp/dlcritupdates.ps1"
+  command "powershell.exe C:/cloudreach/dlcritupdates.ps1"
   run_level :highest
   frequency :minute
   frequency_modifier 15
@@ -31,7 +26,7 @@ windows_task "installcritreboot" do
   user "Administrator"
   password pw["password"]
   cwd "C:/windows/system32/windowspowershell/v1.0/"
-  command "powershell.exe C:/installcritreboot.ps1"
+  command "powershell.exe C:/cloudreach/installcritupdatesreboot.ps1"
   run_level :highest
   frequency :minute
   frequency_modifier 15
