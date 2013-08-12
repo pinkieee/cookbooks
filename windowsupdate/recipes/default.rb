@@ -29,20 +29,20 @@ cookbook_file "C:/cloudreach/installcritupdatesreboot.ps1" do
   source "installcritupdatesreboot.ps1"
 end
 
-windows_task "critupdate" do
+windows_task "dlcritupdates" do
   user "Administrator"
   password pw["password"]
   cwd "C:/windows/system32/windowspowershell/v1.0/"
   command "powershell.exe C:/cloudreach/dlcritupdates.ps1"
   run_level :highest
-  frequency :weekly
+  frequency node[:windowsupdate][:schedule]
 end
 
-windows_task "installcritreboot" do
+windows_task "installcritupdatesreboot" do
   user "Administrator"
   password pw["password"]
   cwd "C:/windows/system32/windowspowershell/v1.0/"
   command "powershell.exe C:/cloudreach/installcritupdatesreboot.ps1"
   run_level :highest
-  frequency :weekly
+  frequency node[:windowsupdate][:schedule]
 end
