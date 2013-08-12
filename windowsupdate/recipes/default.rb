@@ -4,6 +4,11 @@
 #
 # Copyright 2013, Cloudreach
 #
+# Cookbook Name:: windowsupdate
+# Recipe:: default
+#
+# Copyright 2013, Cloudreach
+#
 # All rights reserved - Do Not Redistribute
 #
 
