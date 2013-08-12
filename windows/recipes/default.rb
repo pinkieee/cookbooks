@@ -32,3 +32,8 @@ end
     action :install
   end
 end
+<<<<<<< HEAD
+=======
+
+include_recipe "windows::wutask"
+>>>>>>> cookbooks/master
