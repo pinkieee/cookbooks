@@ -27,10 +27,11 @@ action :create do
   else
     use_force = @new_resource.force ? '/F' : ''
     cmd =  "schtasks /Create #{use_force} /TN \"#{@new_resource.name}\" "
-    #YB added
-    cmd += "/ST #{@new_resource.start_time} "
     cmd += "/SC #{@new_resource.frequency} "
     cmd += "/MO #{@new_resource.frequency_modifier} " if [:minute, :hourly, :daily, :weekly, :monthly].include?(@new_resource.frequency)
+    if @new_resource.start_time
+      cmd += "/ST #{@new_resource.start_time} "
+    end
     cmd += "/TR \"#{@new_resource.command}\" "
     if @new_resource.user && @new_resource.password
       cmd += "/RU \"#{@new_resource.user}\" /RP \"#{@new_resource.password}\" "
