@@ -478,6 +478,8 @@ Server 2008 due to API usage.
 - run_level: Run with limited or highest privileges.
 - frequency: Frequency with which to run the task. (hourly, daily, ect.)
 - frequency_modifier: Multiple for frequency. (15 minutes, 2 days)
+- start_day: Optional string for the first occurence of the task (MM/DD/YYYY)
+- start_time: Optional string for the first occurence of the task (HH:mm) 
 
 ### Examples
 
