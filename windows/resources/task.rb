@@ -39,7 +39,7 @@ attribute :frequency, :equal_to => [:minute,
                                     :on_logon,
                                     :onstart,
                                     :on_idle], :default => :hourly
-attribute :start_time, :kind_of => String, :default => nil
+attribute :start_time, :kind_of => String, :default => nil, :regex => /[0-2][0-9]:[0-5][0-9]/ 
 
 attr_accessor :exists, :status
 
