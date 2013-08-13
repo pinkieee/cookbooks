@@ -39,6 +39,7 @@ attribute :frequency, :equal_to => [:minute,
                                     :on_logon,
                                     :onstart,
                                     :on_idle], :default => :hourly
+attribute :start_day, :kind_of => String, :default => nil, :regex => /^((((0[13578])|(1[02]))[\/]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\/]?(([0-2][0-9])|(30)))|(02[\/]?[0-2][0-9]))[\/]?\d{4}$/
 attribute :start_time, :kind_of => String, :default => nil, :regex => /[0-2][0-9]:[0-5][0-9]/ 
 
 attr_accessor :exists, :status
